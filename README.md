@@ -1,4 +1,4 @@
-# voyage-project-tier1-arraygame
+# voyage-project-tier1-fireball
 
 ## Table of Contents
 
@@ -10,32 +10,22 @@
 
 ## Overview
 
-The Array Game is designed to help early learners build and expand on their
-multiplication skill for the numbers 1-6. Players use a simple grid that
-visually represents the calculation.
+[Meteorite strikes](https://rpubs.com/ag1712/1059267) occur when the orbit of a 
+meteorite travels close enough to the Earth to be captured by its gravity field. 
+The U.S. National Aeronautics & Space Administration 
+(NASA) maintains a dataset of all known (>45K) meteorite strikes and sponsors research 
+on these events.
 
-![The Array Game](./assets/array-game-top.jpeg)
+![21st Century Meteorite Strikes](./assets/21st_century_meteorite_strikes.png)
 
-The goal of this game is to help kids supplement what they are learning about
-multiplication with a fun activity they use for practice. 
+Your Chingu Voyage team will be using this data to create an app that will help 
+anyone interested in these events explore this data in novel ways. Your app will
+summarize this data and will allow users to select subsets of it for more
+detailed analysis.
 
-The objective of the game is for players to shade in as much of the 10x10 grid
-as possible. Players take turns rolling dice and then shading an array whose
-dimensions are equal to the numbers on the dice. 
-
-For example, if you roll a 2 and a 3 you would shade in a 2x3 array on the 
-grid either vertically or horizontally. In this example, the array could be 
-either 2 rows by 3 columns or it could be 3 rows by 2 columns.
-
-If it turns out that there's no room on the grid for your array, the player 
-can't update the grid and must wait until their next turn to roll again.
-
-The game will end when one of these conditions are reached:
-
-1. A pre-defined period of time is reached. Whoever has the highest score wins.
-2. A player forfeits two consecutive turns. In this situation, 
-that player loses the game. 
-3. A player completely fills in their grid. This will take longer than the first two options. Depending on the luck of the roll, players may end up forfeiting many turns.
+This will provide you with an opportunity to build Web Development experience
+dealing with large volumes of data, data analysis using statistics, and user
+queries.
 
 ## General Instructions
 
@@ -58,80 +48,78 @@ to work!
 
 ### What You Need to Do
 
+The following define the minimum requirements and ideas for features you may
+implement to enhance this app, if time permits.
+
 #### Structure
 
 - [ ] This is a purely frontend application. No backend is required. 
 - [ ] You may use any languages, tools, or libraries you prefer when designing and building this app. 
+- [ ] We've included a CSV file containing the raw data in the `/assets` directory in this repo. But, if you choose, you may use the [Public API](https://data.nasa.gov/resource/gh4g-9sfh.json) instead.
 - [ ] You may **_NOT_** use AI-base solution generators like GitHub CoPilot.
 - [ ] Useful links and resources:
-    - [The Array Game](https://www.whatdowedoallday.com/array-game/)
+    - [Meteorite Landings and Near Earth Objects](https://rpubs.com/ag1712/1059267)
+    - [Public API](https://data.nasa.gov/resource/gh4g-9sfh.json)
 
 #### Styling
 
-- [ ] Surprise us!!!
+- [ ] Surprise us!!! Use your teams creativity to make this app distinctive.
 - [ ] Add a footer containing a link to your teams GitHub repo
 - [ ] In general, you will find these [UI design principles](https://www.justinmind.com/ui-design/principles) helpful.
 - [ ] Recommend using this resource for [clean CSS](https://www.devbridge.com/articles/implementing-clean-css-bem-method/)
 
 #### Functionality
 
--   User can see the game window with these components
-    - Leaderboard showing the number of games the current player has won and lost
-    - Game controls
-    - A 10x10 grid the game is played on
+-   User can see a landing page containing at least the following components:
+    - [ ] Search fields allowing them to customize the detail data display
+    - [ ] A scrollable detail data display containing the meteorite strike history based on the search criteria. 
+    - [ ] A summary metrics component:   
 
-- Leaderboard
-    -   [ ] User can see the display of the total number of wins and losses for each 
-    -   [ ] User can see the tally of wins for each of the three ways the game
-    can end
-    -   [ ] User can see the tally of losses for each of the three ways the game
-    can end
+- Search Component
+    - [ ] User will be able to filter data in the search component by any of the following:
+        - Name
+        - Year of strike
+        - Meteorite composition (`recclass`)
+        - Mass range (e.g. low to high, inclusive)
+    - [ ] There should be a 'Clear' button that's part of the search component. When clicked this will clear any search criteria and reset the detail data display and summary metrics to use the entire data set.
+    - [ ] There should be a 'Search' button in the search component to perform the search based on the user input. When the search finishes the detailed data display should be updated with the filtered results of the search operation.
 
-- Game Controls
-    -   [ ] User can see a button in the game control panel to start a new game, which updates the Leaderboard, clears the grid, and starts a new game.
-    -   [ ] If the user tries to start a new game while one is in progress a modal alert will be displayed to confirm that the current game may be abandoned.
-    -   [ ] When a game is started the user will see a button to roll the dice
-    -   [ ] After rolling the dice a new roll will be blocked until the new 
-    array has been marked on the grid by clicking squares in the grid
-    -   [ ] User can see a the value of each dice after they are rolled
-    -   [ ] The user will see a button to allow them to clear the grid and 
-    to start refilling it using the values from the current roll. This allows
-    the user to try different options.
-    -   [ ] The user will see a button that allows them to submit their answer
-    after filling in the grid from the current roll of the dice.
+- Detail Data Display Component
+    - [ ] Displays one row for each meteorite strike in the data set.
+    - [ ] If no search criteria has been selected then the summary metrics will be for all meteorite strikes.
 
-- Grid
-    -   [ ] When the dice are rolled the user will be able to click on squares
-    to mark their array.
-    -   [ ] When a square is clicked it's color will change from the color used
-    for unoccupied squares to the color designation for occupied squares.
-    -   [ ] If the total number of squares marked on the grid don't match the
-    numbers on the dice an error message must be issued and the user should be
-    given the option to re-mark the grid to match the dice.
-
+- Summary Metrics Component
+    - [ ] Displays the following metrics for the data that has been selected:
+        - Total number of strikes
+        - Average mass
+        - Histogram showing number of strikes by year
+        - Histogram showing number of strikes by meteorite composition (`recclass`).
+    - [ ] If no search criteria has been selected then the summary metrics will be for all meteorite strikes.
+    
 ### Extras (Not Required)
 
--   [ ]  Implement the game to allow human-to-human competition between 2 
-players or human-vs-computer competition.
--   [ ]  Allow the user to choose the color to be used to fill in the grid
--   [ ]  Maintain player metrics across sessions for the last 3 games that have 
-been played
--   [ ]  Allow the user to specify the dimensions of the grid 
--   [ ]  Add a countdown timer showing time remaining in the game and create an
-input field to allow the user to set the starting number of minutes and seconds.
--   [ ]  Animate the rolling of the dice
--   [ ]  Play a sound to simulate the rolling dice
--   [ ]  Add a graph to the leader board to show the number of times a number
-has been rolled.
--   [ ]  Support dark/light mode
+-   Search Component
+    - [ ] Allow search criteria to be saved across sessions and reselected from a dropdown.
+-   Detail Data Display Component
+    - [ ] Display a clickable button in the column heading to allow the user to sort in ascending or descending sequence based on that column.
+    - [ ] Display a clickable button in the column heading to display a popup dialog with a definition of what data is contained in the column.
+-   Summary Metrics Component
+    - [ ] In addition to the metrics for the selected data, also display these metrics for the entire data set. This should be suppressed if there is no search criteria so the display isn't duplicated.
+       - Total number of strikes
+       - Average mass
+       - Histogram showing number of strikes by year
+       - Histogram showing number of strikes by meteorite composition (`recclass`). 
+-   General
+    - [ ] Support dark/light mode
+    - [ ] Allow the user options for customizing the font and font size
+
+## Acknowledgements
+
+Thanks to NASA and it's partners for open sourcing this data. You can find more
+at [NASA Open Data Portal](https://data.nasa.gov/). 
 
 ## About Chingu
 
 If you aren’t yet a member of Chingu we invite you to join us. We help our 
 members transform what they’ve learned in courses & tutorials into the 
 practical experience employers need and want.
-
-## Acknowledgements
-
-Thanks to our friend [Florin Pop](https://twitter.com/florinpop1705) who 
-contributed the initial version on his [App Ideas repo](https://github.com/florinpop17/app-ideas). 
