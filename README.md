@@ -99,7 +99,7 @@ implement to enhance this app, if time permits.
 ### Extras (Not Required)
 
 -   Search Component
-    - [ ] Allow search criteria to be saved across sessions and reselected from a dropdown.
+    - [ ] Allow search criteria to be saved across sessions and reselected from a dropdown
 -   Detail Data Display Component
     - [ ] Display a clickable button in the column heading to allow the user to sort in ascending or descending sequence based on that column.
     - [ ] Display a clickable button in the column heading to display a popup dialog with a definition of what data is contained in the column.
